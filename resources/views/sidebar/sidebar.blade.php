@@ -16,29 +16,53 @@
 
     <ul class="menu-inner py-1">
         <!-- Dashboard -->
-        <li class="menu-item {{Request::segment(2) === 'dashboard' ? 'active' : ''}} ">
-            <a href="index.html" class="menu-link">
+        <li class="menu-item {{ Request::segment(1) === 'dashboard' ? 'active' : '' }} ">
+            <a href="{{route('admin.view.dashboard')}}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Dashboard</div>
             </a>
         </li>
 
         <!-- Layouts -->
-        <li class="menu-item {{Request::segment(1) === 'view' || 'create' ? 'active' : ''}}">
+        <li class="menu-item {{ Request::segment(1) === 'blog' ? 'active open' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bxl-blogger"></i>
                 <div data-i18n="Layouts">Blogs</div>
             </a>
 
             <ul class="menu-sub">
-                <li class="menu-item">
-                    <a href="{{route('admin.view.blog')}}" class="menu-link">
+                <li class="menu-item {{ Request::segment(2) === 'allBlog' ? 'active' : '' }}">
+                    <a href="{{route('admin.view.all.blog')}}" class="menu-link">
                         <div data-i18n="Without menu">All Blogs</div>
                     </a>
                 </li>
-                <li class="menu-item {{Request::segment(2) === 'new-blog' ? 'active' : ''}}">
+                <li class="menu-item {{Request::segment(2) === 'add-new-blog-page' ? 'active' : ''}}">
                     <a href="{{route('admin.create.new.blog')}}" class="menu-link">
                         <div data-i18n="Without menu">Add New</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="menu-item {{ Request::segment(1) === 'opening' ? 'active open' : '' }}" style="">
+            <a href="javascript:void(0)" class="menu-link menu-toggle">
+                <i class="menu-icon bx bxs-briefcase-alt"></i>
+                <div data-i18n="career">Openings</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item {{ Request::segment(2) === 'all-openings' ? 'active' : '' }}">
+                    <a href="ui-accordion.html" class="menu-link">
+                        <div data-i18n="Accordion">Add New Opening</div>
+                    </a>
+                </li>
+                <li class="menu-item {{ Request::segment(2) === 'all-openings' ? 'active' : '' }}">
+                    <a href="ui-alerts.html" class="menu-link">
+                        <div data-i18n="Alerts">Active Openings</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="ui-alerts.html" class="menu-link">
+                        <div data-i18n="Alerts">De-Active Openings</div>
                     </a>
                 </li>
             </ul>

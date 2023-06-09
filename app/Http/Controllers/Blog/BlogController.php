@@ -9,17 +9,10 @@ use Illuminate\Support\Facades\Validator;
 
 class BlogController extends Controller
 {
-    public function viewBlog($id = null){
-        if($id != null){
-            $blog_id = decrypt($id);
-
-            $blog_details = Blog::where('id', $blog_id)->first();
-
-            return view('content.blog.edit')->with(['blog_details' => $blog_details]);
-        }else{
-            $blogs = Blog::orderBy('created_at', 'DESC')->get();
-            return view('content.blog.all-blogs')->with(['blogs' => $blogs]);
-        }
+    public function allBlog(){
+        $blogs = Blog::orderBy('created_at', 'DESC')->get();
+        return view('content.blog.all-blogs')->with(['blogs' => $blogs]);
+      
     }
 
     public function viewBlogDetails($id){

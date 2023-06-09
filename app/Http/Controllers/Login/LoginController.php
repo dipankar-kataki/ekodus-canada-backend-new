@@ -28,7 +28,7 @@ class LoginController extends Controller
 
                     return response()->json(['message' => 'Login Failed. Credentials did not match with our records.', 'status' => 0 ]);
                 }else{
-                    return response()->json(['message' => 'Login Successfull.', 'url' => 'view/dashboard', 'status' => 1 ]);
+                    return response()->json(['message' => 'Login Successfull.', 'url' => 'dashboard/view', 'status' => 1 ]);
                 }
             }catch(\Exception $e){
                 return response()->json(['message' => 'Oops! Something Went Wrong', 'status' => 0]);
