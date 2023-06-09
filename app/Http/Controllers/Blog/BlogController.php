@@ -21,7 +21,7 @@ class BlogController extends Controller
 
         $blog_details = Blog::where('id', $blog_id)->first();
 
-        return view('content.blog.details')->with(['blog_details' => $blog_details]);
+        return view('content.blog.view-blog')->with(['blog_details' => $blog_details]);
     }
 
     public function newBlogPage(){
@@ -59,6 +59,14 @@ class BlogController extends Controller
         }
     }
 
+    public function editBlogDetailsPage($id){
+        $blog_id = decrypt($id);
+
+        $blog_details = Blog::where('id', $blog_id)->first();
+
+        return view('content.blog.edit-blog')->with(['blog_details' => $blog_details]);
+    }
+
     public function editBlog(Request $request){
         try{
             $blog_id = decrypt($request->id);
@@ -83,7 +91,7 @@ class BlogController extends Controller
 
             return response()->json(['message' => 'Great! Blog Updated Successfully', 'status' => 1]);
         }catch(\Exception $e){
-            return response()->json(['message' => 'Oops! Something Went Wrong.', 'status' => 0]);
+            return response()->json(['message' => 'Oops! Something Went Wrong.'.$e, 'status' => 0]);
         }
     }
 

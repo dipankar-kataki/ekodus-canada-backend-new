@@ -16,11 +16,11 @@
                 @csrf
                 <div class="mb-3">
                     <label for="blogTitle" class="form-label">Enter Title</label>
-                    <input type="text" class="form-control" id="blogTitle" name="title" placeholder="e.g Benefits of Omega 3" maxlength="80" required>
+                    <input type="text" class="form-control" id="blogTitle" name="title" placeholder="e.g Benefits of Omega 3" maxlength="100" required>
                 </div>
                 <div class="mb-3">
                     <label for="blogImage" class="form-label">Select Blog Image</label>
-                    <input class="form-control" type="file" name="blogImage" id="blogImage" placeholder="Select Image" required>
+                    <input class="form-control" type="file" name="blogImage" id="blogImage" accept=".png, .jpg, .jpeg" placeholder="Select Image" required>
                 </div>
                 <div class="mb-3">
                     <label for="editor" class="form-label">Enter Content</label>

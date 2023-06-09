@@ -34,8 +34,9 @@ Route::group(['middleware' => 'auth'], function(){
         Route::get('allBlog', [BlogController::class, 'allBlog'])->name('admin.view.all.blog');
         Route::get('blog-details/{id}', [BlogController::class, 'viewBlogDetails'])->name('admin.view.blog.details');
         Route::get('add-new-blog-page', [BlogController::class, 'newBlogPage'])->name('admin.create.new.blog');
+        Route::get('edit-blog-details-page/{id}', [BlogController::class, 'editBlogDetailsPage'])->name('admin.edit.blog.details.page');
         Route::post('create-blog', [BlogController::class, 'createBlog'])->name('admin.create.blog');
-        Route::post('blog', [BlogController::class, 'editBlog'])->name('admin.edit.blog');
+        Route::post('edit-blog', [BlogController::class, 'editBlog'])->name('admin.edit.blog');
         Route::post('change-status', [BlogController::class, 'changeStatusBlog'])->name('admin.blog.change.status');
 
     });
