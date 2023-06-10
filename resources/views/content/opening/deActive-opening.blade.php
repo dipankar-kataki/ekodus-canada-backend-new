@@ -1,23 +1,23 @@
 @extends('layout.layout')
-@section('title', 'Active Opening')
+@section('title', 'De-Active Opening')
 @section('custom-css')
     <style>
-        #activeOpeningTable{
-            border: 1px solid #f0f0f0;
-            border-radius: 5px;
+        #deActiveOpeningTable{
+            border: 1px solid #c1c1c1;
+            border-radius: 3px;
         }
 
-        #activeOpeningTable_filter{
+        #deActiveOpeningTable_filter{
             margin-right: 5px;
         }
     </style>
 @endsection
 @section('content')
     <div class="card">
-        <h5 class="card-header">Active Openings</h5>
+        <h5 class="card-header">De-Active Openings</h5>
         <div class="card-body">
             <div class="table-responsive text-nowrap">
-                <table class="table table-striped table-bordered mt-2" id="activeOpeningTable">
+                <table class="table table-striped table-bordered mt-2" id="deActiveOpeningTable">
                     <thead>
                         <tr>
                             <th>Sl No</th>
@@ -30,7 +30,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($active_openings as $key => $item)
+                        @foreach ($deActive_openings as $key => $item)
                             <tr>
                                 <td>{{$key + 1}}</td>
                                 <td>
@@ -54,12 +54,8 @@
                                             <i class="bx bx-dots-vertical-rounded"></i>
                                         </button>
                                         <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="{{route('admin.view.opening', ['id' => encrypt($item->id)])}}">
-                                                <i class="bx bx-show me-1" ></i> View
-                                            </a>
-                                            <a class="dropdown-item" href="javascript:void(0);">
-                                                <i class="bx bx-hide me-1"></i> Change Status
-                                            </a>
+                                        <a class="dropdown-item" href="{{route('admin.view.opening', ['id' => encrypt($item->id)])}}"><i class="bx bx-show me-1"></i> View</a>
+                                        <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-hide me-1"></i> Change Status</a>
                                         </div>
                                     </div>
                                 </td>
@@ -75,7 +71,7 @@
 @section('custom-scripts')
     <script>
         $(document).ready( function(){
-            $('#activeOpeningTable').DataTable();
+            $('#deActiveOpeningTable').DataTable();
         });
     </script>
 @endsection

@@ -46,6 +46,7 @@ Route::group(['middleware' => 'auth'], function(){
         Route::get('add-new-opening-page', [CareerController::class, 'addNewOpeningPage'])->name('admin.add.new.opening.page');
         Route::post('create', [CareerController::class, 'createOpening'])->name('admin.create.openings');
         Route::get('active-opening', [CareerController::class, 'activeOpening'])->name('admin.active.opening');
+        Route::get('deActive-opening', [CareerController::class, 'deActiveOpening'])->name('admin.deActive.opening');
         Route::post('change-status', [CareerController::class, 'changeStatus'])->name('admin.change.status');
         Route::get('view/{id}', [CareerController::class, 'viewOpening'])->name('admin.view.opening');
         Route::post('edit', [CareerController::class, 'editOpening'])->name('admin.edit.opening');

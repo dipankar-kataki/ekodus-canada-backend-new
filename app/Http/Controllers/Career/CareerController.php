@@ -56,12 +56,17 @@ class CareerController extends Controller
         return view('content.opening.active-opening')->with(['active_openings' => $active_openings]);
     }
 
+    public function deActiveOpening(){
+        $deActive_openings = Career::where('status', 0)->orderBy('created_at', 'DESC')->get();
+        return view('content.opening.deActive-opening')->with(['deActive_openings' => $deActive_openings]);
+    }
+
     public function viewOpening($id){
         try{
             $career_id = decrypt($id);
 
-            $career_details = Career::where('id', $career_id)->first();
-            return view('content.career.details')->with(['career_details' => $career_details]);
+            $opening_details = Career::where('id', $career_id)->first();
+            return view('content.opening.opening-details')->with(['opening_details' => $opening_details]);
         }catch(\Exception $e){
             echo 'Oops! Something Went Wrong';
         }

@@ -60,8 +60,8 @@
                         <div data-i18n="Alerts">Active Openings</div>
                     </a>
                 </li>
-                <li class="menu-item">
-                    <a href="ui-alerts.html" class="menu-link">
+                <li class="menu-item {{ Request::segment(2) === 'deActive-opening' ? 'active' : '' }}">
+                    <a href="{{route('admin.deActive.opening')}}" class="menu-link">
                         <div data-i18n="Alerts">De-Active Openings</div>
                     </a>
                 </li>
