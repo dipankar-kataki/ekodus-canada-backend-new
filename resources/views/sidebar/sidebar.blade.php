@@ -50,13 +50,13 @@
                 <div data-i18n="career">Openings</div>
             </a>
             <ul class="menu-sub">
-                <li class="menu-item {{ Request::segment(2) === 'all-openings' ? 'active' : '' }}">
-                    <a href="ui-accordion.html" class="menu-link">
+                <li class="menu-item {{ Request::segment(2) === 'add-new-opening-page' ? 'active' : '' }}">
+                    <a href="{{route('admin.add.new.opening.page')}}" class="menu-link">
                         <div data-i18n="Accordion">Add New Opening</div>
                     </a>
                 </li>
-                <li class="menu-item {{ Request::segment(2) === 'all-openings' ? 'active' : '' }}">
-                    <a href="ui-alerts.html" class="menu-link">
+                <li class="menu-item {{ Request::segment(2) === 'active-opening' ? 'active' : '' }}">
+                    <a href="{{route('admin.active.opening')}}" class="menu-link">
                         <div data-i18n="Alerts">Active Openings</div>
                     </a>
                 </li>

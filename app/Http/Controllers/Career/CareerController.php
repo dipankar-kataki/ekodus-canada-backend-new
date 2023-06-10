@@ -9,12 +9,12 @@ use Illuminate\Support\Facades\Validator;
 
 class CareerController extends Controller
 {
-    public function viewAllOpenings(){
+    public function addNewOpeningPage(){
         try{
-            $active_openings = Career::where('status', 1)->orderBy('created_at', 'DESC')->get();
+            
             $deactive_openings = Career::where('status', 0)->orderBy('created_at', 'DESC')->get();
 
-            return view('content.career.index')->with(['active_openings' => $active_openings, 'deactive_openings' => $deactive_openings]);
+            return view('content.opening.add-new-opening');
         }catch(\Exception $e){
             echo 'Oops Something Wnet Wrong';
         }
@@ -49,6 +49,11 @@ class CareerController extends Controller
                 return response()->json(['message' => 'Oops! Something Went Wrong.', 'status' => 0]);
             }
         }
+    }
+
+    public function activeOpening(){
+        $active_openings = Career::where('status', 1)->orderBy('created_at', 'DESC')->get();
+        return view('content.opening.active-opening')->with(['active_openings' => $active_openings]);
     }
 
     public function viewOpening($id){
