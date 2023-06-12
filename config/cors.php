@@ -19,7 +19,7 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['https://admin.ekodus.ca/','*'],
+    'allowed_origins' => ['https://admin.ekodus.ca/*','*'],
 
     'allowed_origins_patterns' => [],
 
