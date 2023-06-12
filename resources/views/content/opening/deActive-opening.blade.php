@@ -54,8 +54,10 @@
                                             <i class="bx bx-dots-vertical-rounded"></i>
                                         </button>
                                         <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="{{route('admin.view.opening', ['id' => encrypt($item->id)])}}"><i class="bx bx-show me-1"></i> View</a>
-                                        <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-hide me-1"></i> Change Status</a>
+                                            <a class="dropdown-item" href="{{route('admin.view.opening', ['id' => encrypt($item->id)])}}"><i class="bx bx-show me-1"></i> View</a>
+                                            <a class="dropdown-item changeStatus" href="javascript:void(0)" data-id="{{ encrypt($item->id) }}" data-status="1">
+                                                <i class="bx bx-hide me-1"></i> Change Status
+                                            </a>
                                         </div>
                                     </div>
                                 </td>
@@ -73,5 +75,44 @@
         $(document).ready( function(){
             $('#deActiveOpeningTable').DataTable();
         });
+    </script>
+
+    <script>
+        $('.changeStatus').on('click', function(){
+        
+        const id = $(this).data('id');
+        const status = $(this).data('status')
+
+            $.ajax({
+                url:"{{route('admin.change.status')}}",
+                type:"POST",
+                data:{
+                    id: id,
+                    status: status,
+                    '_token': "{{csrf_token()}}"
+                },
+                success:function(data){
+
+                    if(data.status === 1){
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Great!',
+                            text: data.message,
+                        })
+
+                        location.reload(true)
+                    }else{
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops!',
+                            text: data.message,
+                        })
+                    }
+                    
+                }, error:function(error){
+                    console.log(error)
+                }
+            })
+        })
     </script>
 @endsection
