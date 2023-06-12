@@ -1,5 +1,5 @@
 @extends('layout.layout')
-@section('title', 'Add New Product')
+@section('title', 'Edit Product')
 @section('custom-css')
     <style>
         .ck-editor__editable[role="textbox"] {
