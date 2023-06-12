@@ -24,7 +24,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::group(['prefix' => 'candidate'], function(){
-    Route::post('register', [CandidateController::class, 'register']);
+    Route::post('apply-job', [CandidateController::class, 'register']);
 });
 
 Route::group(['prefix' => 'blogs'], function(){
