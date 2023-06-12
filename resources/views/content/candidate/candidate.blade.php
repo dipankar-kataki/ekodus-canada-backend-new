@@ -30,7 +30,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse ($list_of_candidates as $key=> $item)
+                        @foreach ($list_of_candidates as $key=> $item)
                             <tr>
                                 <td>{{$key + 1}}</td>
                                 <td>{{$item->first_name}} {{$item->last_name}}</td>
@@ -40,11 +40,7 @@
                                 <td><a href="{{asset($item->resume)}}" target="_blank">Download</a></td>
                                 <td>{{Carbon\Carbon::parse($item->created_at)->format('M d, Y')}}</td>
                             </tr>
-                        @empty
-                            <tr>
-                                <td>No Candidates Found :(</td>
-                            </tr>
-                        @endforelse
+                        @endforeach
                     </tbody>
                 </table>
             </div>
