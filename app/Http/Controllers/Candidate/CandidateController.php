@@ -35,7 +35,8 @@ class CandidateController extends Controller
             try{
                 $resumeName = null;
                 if ($request->hasFile('resume')) {
-                    $resume = time() . '.' . $request->resume->extension();
+                    $resume_name = $request->resume->getClientOriginalName();
+                    $resume = $resume_name.'-'.time() . '.' . $request->resume->extension();
                     $request->resume->move(public_path('Candidate/Resume/'), $resume);
                     $resumeName = 'Candidate/Resume/' . $resume;
                 }
