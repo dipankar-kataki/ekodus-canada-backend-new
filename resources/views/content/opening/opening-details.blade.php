@@ -3,9 +3,6 @@
 @section('custom-css')
 @endsection
 @section('content')
-    <a href="{{route('admin.active.opening')}}" class="btn btn-icon btn-secondary mb-3">
-        <span class="bx bx-home"></span>
-    </a>
     <div class="card mb-4">
         <div class="card-body">
             <div class="mb-3">

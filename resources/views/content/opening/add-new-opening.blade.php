@@ -16,19 +16,19 @@
                 @csrf
                 <div class="mb-3">
                     <label for="title" class="form-label">Enter Job Title</label>
-                    <input type="text" class="form-control" id="title" name="title" placeholder="e.g Frontend Developer Required" maxlength="30">
+                    <input type="text" class="form-control" id="title" name="title" placeholder="e.g Frontend Developer Required" maxlength="30" required>
                 </div>
                 <div class="mb-3">
                     <label for="location" class="form-label">Enter Job Location</label>
-                    <input type="text" class="form-control" id="location" name="location" placeholder="e.g Canada">
+                    <input type="text" class="form-control" id="location" name="location" placeholder="e.g Canada" required>
                 </div>
                 <div class="mb-3">
                     <label for="experience" class="form-label">Enter Job Experience In Years</label>
-                    <input type="number" class="form-control" id="experience" name="experience" placeholder="e.g 12">
+                    <input type="number" class="form-control" id="experience" name="experience" placeholder="e.g 12" required> 
                 </div>
                 <div class="mb-3">
                     <label for="shift" class="form-label">Select Shift</label>
-                    <select class="form-select" id="shift" name="shift">
+                    <select class="form-select" id="shift" name="shift" required>
                       <option selected="">- Select -</option>
                       <option value="Full Time">Full Time</option>
                       <option value="Part Time">Part Time</option>
