@@ -12,7 +12,7 @@ class CandidateController extends Controller
     public function allCandidates(){
         try{
             $list_of_candidates = Candidate::orderBy('created_at', 'DESC')->get();
-            return view('content.candidate.index')->with(['list_of_candidates' => $list_of_candidates]);
+            return view('content.candidate.candidate')->with(['list_of_candidates' => $list_of_candidates]);
         }catch(\Exception $e){
             return response()->json(['message' => 'Oops! Something Went Wrong.', 'status' => 0]);
         }

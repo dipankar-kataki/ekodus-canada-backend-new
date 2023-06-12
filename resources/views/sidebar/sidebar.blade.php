@@ -67,5 +67,19 @@
                 </li>
             </ul>
         </li>
+
+        <li class="menu-item {{ Request::segment(1) === 'candidate' ? 'active open' : '' }}" style="">
+            <a href="javascript:void(0)" class="menu-link menu-toggle">
+                <i class="menu-icon bx bx-user-pin"></i>
+                <div data-i18n="career">Candidates</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item {{ Request::segment(2) === 'all-candidates' ? 'active' : '' }}">
+                    <a href="{{route('admin.all.candidates')}}" class="menu-link">
+                        <div data-i18n="Accordion">All Candidates</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
     </ul>
 </aside>
