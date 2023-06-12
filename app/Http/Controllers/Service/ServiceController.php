@@ -12,10 +12,15 @@ class ServiceController extends Controller
     public function getAllServices(){
         try{
             $all_services = Service::orderBy('created_at', 'DESC')->get();
-            return view('content.services.index')->with(['services' => $all_services]);
+            return view('content.service.all-services')->with(['services' => $all_services]);
         }catch(\Exception $e){
             echo 'Oops! Something Went Wrong';
         }
+    }
+
+
+    public function addNewServicePage(){
+        return view('content.service.add-new-service');
     }
 
 
@@ -48,7 +53,7 @@ class ServiceController extends Controller
                 ]);
                 return response()->json(['message' => 'Great! Service Created Successfully', 'status' => 1]);
             }catch(\Exception $e){
-                return response()->json(['message' => 'Oops! Something Went Wrong', 'status' => 0]);
+                return response()->json(['message' => 'Oops! Something Went Wrong'.$e, 'status' => 0]);
             }
         }
         
@@ -60,7 +65,7 @@ class ServiceController extends Controller
             $id = decrypt($id);
 
             $get_details = Service::where('id', $id)->first();
-            return view('content.services.details')->with(['service_details' => $get_details]);
+            return view('content.service.view-service')->with(['service_details' => $get_details]);
         }catch(\Exception $e){
             echo 'Oops! Something Went Wrong';
         }
@@ -71,7 +76,7 @@ class ServiceController extends Controller
         try{
             $service_id = decrypt($id);
             $get_details = Service::where('id', $service_id)->first();
-            return view('content.services.edit')->with(['service_details' => $get_details]);
+            return view('content.service.edit-service')->with(['service_details' => $get_details]);
         }catch(\Exception $e){
             return response()->json(['message' => 'Oops! Something Went Wrong.', 'status' => 0]);
         }

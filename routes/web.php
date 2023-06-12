@@ -62,10 +62,11 @@ Route::group(['middleware' => 'auth'], function(){
     
     Route::group(['prefix' => 'service'], function(){
 
-        Route::get('all', [ServiceController::class, 'getAllServices'])->name('admin.get.all.services');
+        Route::get('all-services', [ServiceController::class, 'getAllServices'])->name('admin.get.all.services');
+        Route::get('add-new-service-page', [ServiceController::class, 'addNewServicePage'])->name('admin.add.new.service.page');
         Route::post('create', [ServiceController::class, 'createService'])->name('admin.create.service');
         Route::get('details/{id}', [ServiceController::class, 'serviceDetails'])->name('admin.service.details');
-        Route::get( 'edit-service/{id}', [ServiceController::class, 'editService'])->name('admin.edit.service');
+        Route::get( 'edit-service-page/{id}', [ServiceController::class, 'editService'])->name('admin.edit.service.page');
         Route::post( 'save-edit-service', [ServiceController::class, 'saveEditService'])->name('admin.save.edit.service');
         Route::post('change-status', [ServiceController::class, 'changeStatus'])->name('admin.service.change.status');
 

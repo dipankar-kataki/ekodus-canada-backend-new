@@ -81,5 +81,24 @@
                 </li>
             </ul>
         </li>
+
+        <li class="menu-item {{ Request::segment(1) === 'service' ? 'active open' : '' }}" style="">
+            <a href="javascript:void(0)" class="menu-link menu-toggle">
+                <i class="menu-icon bx bx-user-pin"></i>
+                <div data-i18n="career">Services</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item {{ Request::segment(2) === 'all-services' ? 'active' : '' }}">
+                    <a href="{{route('admin.get.all.services')}}" class="menu-link">
+                        <div data-i18n="Accordion">All Services</div>
+                    </a>
+                </li>
+                <li class="menu-item {{ Request::segment(2) === 'add-new-service-page' ? 'active' : '' }}">
+                    <a href="{{route('admin.add.new.service.page')}}" class="menu-link">
+                        <div data-i18n="Accordion">Add New Service</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
     </ul>
 </aside>
