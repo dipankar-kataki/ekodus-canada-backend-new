@@ -100,5 +100,24 @@
                 </li>
             </ul>
         </li>
+
+        <li class="menu-item {{ Request::segment(1) === 'product' ? 'active open' : '' }}" style="">
+            <a href="javascript:void(0)" class="menu-link menu-toggle">
+                <i class="menu-icon bx bx-user-pin"></i>
+                <div data-i18n="career">Products</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item {{ Request::segment(2) === 'all-products' ? 'active' : '' }}">
+                    <a href="{{route('admin.get.all.products')}}" class="menu-link">
+                        <div data-i18n="Accordion">All Products</div>
+                    </a>
+                </li>
+                <li class="menu-item {{ Request::segment(2) === 'add-new-service-page' ? 'active' : '' }}">
+                    <a href="{{route('admin.add.new.product.page')}}" class="menu-link">
+                        <div data-i18n="Accordion">Add New Product</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
     </ul>
 </aside>

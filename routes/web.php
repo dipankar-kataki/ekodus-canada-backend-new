@@ -74,10 +74,11 @@ Route::group(['middleware' => 'auth'], function(){
     
     Route::group(['prefix' => 'product'], function(){
 
-        Route::get('all', [ProductController::class, 'getAllProducts'])->name('admin.get.all.products');
+        Route::get('all-products', [ProductController::class, 'getAllProducts'])->name('admin.get.all.products');
+        Route::get('add-new-product-page', [ProductController::class, 'addNewProductPage'])->name('admin.add.new.product.page');
         Route::post('create', [ProductController::class, 'createProduct'])->name('admin.create.product');
         Route::get('details/{id}', [ProductController::class, 'productDetails'])->name('admin.product.details');
-        Route::get( 'edit-product/{id}', [ProductController::class, 'editProduct'])->name('admin.edit.product');
+        Route::get( 'edit-product-page/{id}', [ProductController::class, 'editProduct'])->name('admin.edit.product.page');
         Route::post( 'save-edit-product', [ProductController::class, 'saveEditProduct'])->name('admin.save.edit.product');
         Route::post('change-status', [ProductController::class, 'changeStatus'])->name('admin.product.change.status');
 

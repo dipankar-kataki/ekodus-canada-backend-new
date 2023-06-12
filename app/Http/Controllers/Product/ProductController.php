@@ -12,10 +12,14 @@ class ProductController extends Controller
     public function getAllProducts(){
         try{
             $all_products = Product::orderBy('created_at', 'DESC')->get();
-            return view('content.product.index')->with(['products' => $all_products]);
+            return view('content.product.all-products')->with(['products' => $all_products]);
         }catch(\Exception $e){
             echo 'Oops! Something Went Wrong';
         }
+    }
+
+    public function addNewProductPage(){
+        return view('content.product.add-new-product-page');
     }
 
     public function createProduct(Request $request){
@@ -57,7 +61,7 @@ class ProductController extends Controller
             $id = decrypt($id);
 
             $get_details = Product::where('id', $id)->first();
-            return view('content.product.details')->with(['product_details' => $get_details]);
+            return view('content.product.view-product')->with(['product_details' => $get_details]);
         }catch(\Exception $e){
             echo 'Oops! Something Went Wrong';
         }
@@ -67,7 +71,7 @@ class ProductController extends Controller
         try{
             $product_id = decrypt($id);
             $get_details = Product::where('id', $product_id)->first();
-            return view('content.product.edit')->with(['product_details' => $get_details]);
+            return view('content.product.edit-product')->with(['product_details' => $get_details]);
         }catch(\Exception $e){
             return response()->json(['message' => 'Oops! Something Went Wrong.', 'status' => 0]);
         }
