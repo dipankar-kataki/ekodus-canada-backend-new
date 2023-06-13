@@ -90,8 +90,6 @@
                     myShortEditor = editor;
 
                     const short_desc = `{!! $product_details->short_description !!}`;
-                    // const escaped_short_desc = short_desc;
-                    // console.log('escaped_short_desc  ===>', escaped_short_desc)
                     myShortEditor.setData(short_desc);
                 } )
                 .catch( error => {
