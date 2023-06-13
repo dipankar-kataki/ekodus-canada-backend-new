@@ -14,7 +14,7 @@
 @endsection
 @section('content')
     <div class="card">
-        <h5 class="card-header">De-Active Openings</h5>
+        <h5 class="card-header">Inactive Openings</h5>
         <div class="card-body">
             <div class="table-responsive text-nowrap">
                 <table class="table table-striped table-bordered mt-2" id="deActiveOpeningTable">

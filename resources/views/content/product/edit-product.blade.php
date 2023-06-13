@@ -88,7 +88,11 @@
                     ]
                 }).then( editor => {
                     myShortEditor = editor;
-                    myShortEditor.setData('{!! $product_details->short_description !!}');
+
+                    const short_desc = "{!! $product_details->short_description !!}";
+                    const escaped_short_desc = short_desc.replace(/"/g, '\\"');
+
+                    myShortEditor.setData(escaped_short_desc);
                 } )
                 .catch( error => {
                     console.error( error );
@@ -113,7 +117,10 @@
                     ]
                 }).then( editor => {
                     myFullEditor = editor;
-                    myFullEditor.setData('{!! $product_details->full_description !!}');
+                    const full_desc = "{!! $product_details->full_description !!}";
+                    const escaped_full_desc = full_desc.replace(/"/g, '\\"');
+
+                    myFullEditor.setData(escaped_full_desc);
                 } )
                 .catch( error => {
                     console.error( error );
