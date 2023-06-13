@@ -88,10 +88,9 @@
                     ]
                 }).then( editor => {
                     myShortEditor = editor;
-                    const short_desc = "{!! $service_details->short_description !!}";
-                    const escaped_short_desc = short_desc.replace(/"/g, '\\"');
+                    const short_desc = `{!! $service_details->short_description !!}`;
 
-                    myShortEditor.setData(escaped_short_desc);
+                    myShortEditor.setData(short_desc);
                 } )
                 .catch( error => {
                     console.error( error );
@@ -116,10 +115,9 @@
                     ]
                 }).then( editor => {
                     myFullEditor = editor;
-                    const full_desc = "{!! $service_details->full_description !!}";
-                    const escaped_full_desc = full_desc.replace(/"/g, '\\"');
+                    const full_desc = `{!! $service_details->full_description !!}`;
 
-                    myFullEditor.setData(escaped_full_desc);
+                    myFullEditor.setData(full_desc);
                 } )
                 .catch( error => {
                     console.error( error );

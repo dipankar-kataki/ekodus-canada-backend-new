@@ -84,10 +84,9 @@
                     ]
                 }).then( editor => {
                     myEditor = editor;
-                    const content = "{!! $blog_details->content !!}";
-                    const escaped_content = content.replace(/"/g, '\\"');
+                    const content = `{!! $blog_details->content !!}`;
 
-                    myEditor.setData(escaped_content);
+                    myEditor.setData(content);
                 } )
                 .catch( error => {
                     console.error( error );
