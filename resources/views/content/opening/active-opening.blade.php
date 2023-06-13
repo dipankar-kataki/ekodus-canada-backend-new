@@ -58,7 +58,7 @@
                                                 <i class="bx bx-show me-1" ></i> View
                                             </a>
                                             <a class="dropdown-item changeStatus" href="javascript:void(0)" data-id="{{ encrypt($item->id) }}" data-status="0">
-                                                <i class="bx bx-hide me-1"></i> Change Status
+                                                <i class="bx bx-hide me-1"></i> Inactive
                                             </a>
                                         </div>
                                     </div>
@@ -101,9 +101,12 @@
                             icon: 'success',
                             title: 'Great!',
                             text: data.message,
+                            confirmButtonText: 'Okay',
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                location.reload(true)
+                            }
                         })
-
-                        location.reload(true)
                     }else{
                         Swal.fire({
                             icon: 'error',

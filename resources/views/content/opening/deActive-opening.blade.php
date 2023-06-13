@@ -56,7 +56,7 @@
                                         <div class="dropdown-menu">
                                             <a class="dropdown-item" href="{{route('admin.view.opening', ['id' => encrypt($item->id)])}}"><i class="bx bx-show me-1"></i> View</a>
                                             <a class="dropdown-item changeStatus" href="javascript:void(0)" data-id="{{ encrypt($item->id) }}" data-status="1">
-                                                <i class="bx bx-hide me-1"></i> Change Status
+                                                <i class="bx bx-hide me-1"></i> Active
                                             </a>
                                         </div>
                                     </div>
@@ -98,9 +98,12 @@
                             icon: 'success',
                             title: 'Great!',
                             text: data.message,
+                            confirmButtonText: 'Okay',
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                location.reload(true)
+                            }
                         })
-
-                        location.reload(true)
                     }else{
                         Swal.fire({
                             icon: 'error',

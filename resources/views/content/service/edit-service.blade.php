@@ -88,7 +88,7 @@
                     ]
                 }).then( editor => {
                     myShortEditor = editor;
-                    myShortEditor.setData("{!! $service_details->short_description !!}");
+                    myShortEditor.setData('{!! $service_details->short_description !!}');
                 } )
                 .catch( error => {
                     console.error( error );
@@ -113,7 +113,7 @@
                     ]
                 }).then( editor => {
                     myFullEditor = editor;
-                    myFullEditor.setData("{!! $service_details->full_description !!}");
+                    myFullEditor.setData('{!! $service_details->full_description !!}');
                 } )
                 .catch( error => {
                     console.error( error );

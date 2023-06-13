@@ -73,9 +73,12 @@
                             icon: 'success',
                             title: 'Great!',
                             text: data.message,
+                            confirmButtonText: 'Okay',
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                location.reload(true)
+                            }
                         })
-
-                        location.reload(true)
                     }else{
                         Swal.fire({
                             icon: 'error',

@@ -62,7 +62,7 @@
                 </li>
                 <li class="menu-item {{ Request::segment(2) === 'deActive-opening' ? 'active' : '' }}">
                     <a href="{{route('admin.deActive.opening')}}" class="menu-link">
-                        <div data-i18n="Alerts">De-Active Openings</div>
+                        <div data-i18n="Alerts">Inactive Openings</div>
                     </a>
                 </li>
             </ul>
