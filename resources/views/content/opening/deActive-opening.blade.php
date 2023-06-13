@@ -1,5 +1,5 @@
 @extends('layout.layout')
-@section('title', 'De-Active Opening')
+@section('title', 'Inactive Opening')
 @section('custom-css')
     <style>
         #deActiveOpeningTable{
