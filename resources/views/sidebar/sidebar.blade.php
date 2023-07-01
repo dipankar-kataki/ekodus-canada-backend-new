@@ -1,6 +1,6 @@
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
     <div class="app-brand demo mb-3">
-        <a href="index.html" class="app-brand-link">
+        <a href="javascript:void(0)" class="app-brand-link">
             <span class="app-brand-logo demo">
                 <img src="{{asset('assets/img/logo/ekodus-logo.png')}}" alt="Ekodus Canada Logo" style="height:60px;">
             </span>
